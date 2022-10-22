@@ -117,8 +117,8 @@ const data = [
 */
 
 function articleMaker(article){
-  let newDiv = document.createElement('div');
-  newDiv.classList.add('article');
+  let div = document.createElement('div');
+  div.classList.add('article');
 
   const heading = document.createElement('h2');
   heading.textContent = article.title;
@@ -139,13 +139,16 @@ function articleMaker(article){
   const span = document.createElement('span');
   span.classList.add('expandButton');
   span.textContent = '+';
+  span.addEventListener('click', (element) => {
+    div.classList.toggle('article-open');
+  })
 
-  newDiv.appendChild(heading);
-  newDiv.appendChild(date);
-  newDiv.appendChild(p1);
-  newDiv.appendChild(p2);
-  newDiv.appendChild(p3);
-  newDiv.appendChild(span);
+  div.appendChild(heading);
+  div.appendChild(date);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(span);
 
   return newDiv;
 }

@@ -88,6 +88,15 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+  {
+    title: 'How to Use Components to Reduce Code Redundancy',
+    date: 'October 23rd, 2022',
+    firstParagraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus luctus accumsan tortor posuere ac ut. Tellus molestie nunc non blandit massa enim nec dui. Suspendisse in est ante in nibh mauris cursus mattis molestie. Ultricies tristique nulla aliquet enim tortor at auctor urna nunc. Vel eros donec ac odio tempor orci dapibus. Elementum tempus egestas sed sed risus. Nunc consequat interdum varius sit. Rhoncus mattis rhoncus urna neque viverra justo. Felis eget velit aliquet sagittis id consectetur. Et leo duis ut diam. Nisl vel pretium lectus quam id leo in.',
+
+    secondParagraph: 'Volutpat est velit egestas dui id ornare arcu. Nunc id cursus metus aliquam eleifend mi in nulla posuere. Sem et tortor consequat id porta nibh venenatis cras. Tortor at auctor urna nunc id. Amet mauris commodo quis imperdiet. Enim facilisis gravida neque convallis a cras. Pulvinar neque laoreet suspendisse interdum. Sem viverra aliquet eget sit. Orci ac auctor augue mauris augue neque gravida in fermentum. Mauris cursus mattis molestie a iaculis at erat pellentesque. Massa sapien faucibus et molestie ac feugiat sed. Turpis tincidunt id aliquet risus feugiat in. Augue lacus viverra vitae congue. Eget est lorem ipsum dolor sit amet consectetur adipiscing elit. Diam volutpat commodo sed egestas. Cursus in hac habitasse platea dictumst quisque.',
+
+    thirdParagraph: 'Ac felis donec et odio pellentesque diam volutpat. Vel elit scelerisque mauris pellentesque pulvinar. Eget duis at tellus at urna condimentum mattis pellentesque. Nunc id cursus metus aliquam eleifend mi. Malesuada pellentesque elit eget gravida cum sociis natoque penatibus. Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Posuere ac ut consequat semper viverra. Mattis vulputate enim nulla aliquet porttitor lacus. Nisl condimentum id venenatis a. Scelerisque varius morbi enim nunc faucibus a pellentesque. Feugiat pretium nibh ipsum consequat nisl vel. Fames ac turpis egestas integer eget aliquet nibh praesent. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.'
+  }
 ];
 
 /*
@@ -141,7 +150,7 @@ function articleMaker(article){
   span.textContent = '+';
   span.addEventListener('click', (element) => {
     div.classList.toggle('article-open');
-  })
+  });
 
   div.appendChild(heading);
   div.appendChild(date);
@@ -151,6 +160,15 @@ function articleMaker(article){
   div.appendChild(span);
 
   return newDiv;
-}
+};
 
-console.log(articleMaker(data[0]));
+let newArticles = data.map((arrayItem) => {
+  let newDiv = articleMaker(arrayItem);
+
+  return newDiv;
+});
+
+newArticles.forEach(component => {
+  let container = document.querySelector('.articles');
+  container.appendChild(component);
+});

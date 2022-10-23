@@ -87,7 +87,7 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
   {
     title: 'How to Use Components to Reduce Code Redundancy',
     date: 'October 23rd, 2022',
@@ -159,7 +159,7 @@ function articleMaker(article){
   div.appendChild(p3);
   div.appendChild(span);
 
-  return newDiv;
+  return div;
 };
 
 let newArticles = data.map((arrayItem) => {
